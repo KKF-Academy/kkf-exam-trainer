@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#17131f"><title>Teacher Dashboard · KKF Academy</title><link rel="stylesheet" href="./styles.css"><script type="module" src="./teacher.js"></script></head>
+<body>
+<a class="skip" href="#teacher-content">Skip to results</a>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="./"><span class="brand-mark">KKF<span class="brand-dot">.</span></span><span class="brand-name">ACADEMY<span>Learn how to learn.</span></span></a><span class="access-badge">Teacher dashboard</span></div></header>
+<main class="shell">
+<section class="intro"><div><p class="eyebrow"><span class="gold-line"></span><span id="teacher-heading">YOUR STUDENTS</span></p><h1>See the learning.<br><span>Guide the next step.</span></h1><p class="intro-copy" id="report-scope">Activities and results for students assigned to you.</p></div></section>
+<div id="account-panel"></div>
+<section id="teacher-content" hidden>
+<p id="admin-tools" hidden><a class="text-button" href="./admin.html">Manage teachers, students and assignments →</a></p>
+<div class="dashboard-toolbar">
+<form id="report-filter" class="report-filters">
+<div class="field"><label for="search-email">Find an email or student name</label><input id="search-email" type="search" maxlength="254" placeholder="Search students…"></div>
+<div class="field" id="teacher-filter-field" hidden><label for="filter-teacher">Assigned teacher</label><select id="filter-teacher"><option value="">All teachers</option></select></div>
+<div class="field"><label for="filter-from">From date</label><input id="filter-from" type="date"></div>
+<div class="field"><label for="filter-to">To date</label><input id="filter-to" type="date"></div>
+<button class="primary" type="submit">Search</button></form>
+<div class="account-actions"><button id="refresh-report" class="text-button">Refresh</button><button id="export-report" class="primary">Export matching CSV</button></div>
+</div>
+<p class="sync-status" id="report-status" role="status"></p><div id="report-overview"></div>
+<div class="table-wrap"><table class="results-table"><thead><tr><th>Student</th><th>Date (your time)</th><th>Practice score</th><th>Completed</th><th>Written review</th></tr></thead><tbody id="session-rows"></tbody></table></div>
+<div id="pagination" class="pagination"></div><section id="session-detail" tabindex="-1"></section>
+<details class="roster-panel"><summary id="roster-title">Assigned students</summary><p>Account registration and assignments are managed by the Super Admin. Disabled students' previous work is retained.</p><div id="roster-list"></div></details>
+</section>
+<footer><span>KKF ACADEMY</span><span>Student records are private · access follows assignments</span></footer>
+</main></body></html>
