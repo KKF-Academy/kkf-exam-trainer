@@ -1,0 +1,2 @@
+[functions.kkf-admin]
+verify_jwt = true
