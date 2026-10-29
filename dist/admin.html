@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#17131f">
+  <title>Super Admin · KKF Academy</title>
+  <link rel="stylesheet" href="./styles.css"><script type="module" src="./admin.js"></script>
+</head>
+<body>
+<a class="skip" href="#admin-content">Skip to account management</a>
+<header class="topbar"><div class="topbar-inner">
+  <a class="brand" href="./"><span class="brand-mark">KKF<span class="brand-dot">.</span></span><span class="brand-name">ACADEMY<span>Learn how to learn.</span></span></a>
+  <span class="access-badge">Super Admin</span>
+</div></header>
+<main class="shell">
+  <section class="intro"><div><p class="eyebrow"><span class="gold-line"></span> PEOPLE &amp; ACCESS</p>
+    <h1>Make room for<br><span>the next learner.</span></h1>
+    <p class="intro-copy">One place for teachers, students and the connections that support learning.</p>
+  </div></section>
+  <div id="account-panel"></div>
+  <section id="admin-content" hidden>
+    <nav class="admin-nav" aria-label="Admin sections"><a href="#add-person">Add a person</a><a href="#people-panel">People &amp; assignments</a><a href="./teacher.html">All activity →</a></nav>
+    <section id="add-person" class="admin-card">
+      <div class="admin-section-heading"><div><p class="section-label">WELCOME SOMEONE NEW</p><h2>Create an account. Send an invitation.</h2></div><span class="admin-tag">Super Admin only</span></div>
+      <p class="review-help">Their login and academy access are set up together. Existing accounts are reused.</p>
+      <form id="create-person-form">
+        <div class="admin-form-grid">
+          <div class="field"><label for="new-role">Account type</label><select id="new-role"><option value="student">Student</option><option value="teacher">Teacher</option></select></div>
+          <div class="field"><label for="new-name">Full name</label><input id="new-name" maxlength="80" required autocomplete="name"></div>
+          <div class="field"><label for="new-email">Email address</label><input id="new-email" type="email" maxlength="254" required autocomplete="email"></div>
+          <div class="field" id="new-year-field"><label for="new-year">Year group (optional)</label><input id="new-year" maxlength="30" placeholder="e.g. Year 10"></div>
+        </div>
+        <fieldset id="new-assignments" class="assignment-fieldset"><legend>Assigned teachers</legend>
+          <p class="review-help">Select one or more teachers, or assign later. Unassigned students are visible only to you.</p>
+          <div id="new-teacher-choices" class="teacher-choices"></div>
+        </fieldset>
+        <button class="primary" type="submit">Create and send invitation</button>
+        <p id="create-status" class="sync-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section id="people-panel" class="admin-card">
+      <div class="admin-section-heading"><div><p class="section-label">PEOPLE &amp; ASSIGNMENTS</p><h2>Your academy, connected.</h2></div><button id="refresh-people" class="text-button">Refresh</button></div>
+      <form id="people-filter" class="auth-fields">
+        <div class="field"><label for="people-search">Name or email</label><input id="people-search" type="search" maxlength="254" placeholder="Find someone…"></div>
+        <div class="field"><label for="people-role">Show</label><select id="people-role"><option value="">Everyone</option><option value="teacher">Teachers</option><option value="student">Students</option></select></div>
+        <button class="primary" type="submit">Search</button>
+      </form>
+      <p id="people-status" class="sync-status" role="status"></p>
+      <div id="people-overview"></div>
+      <div class="table-wrap"><table class="results-table"><thead><tr><th>Person</th><th>Role / year</th><th>Status</th><th>Connections</th><th>Last sign-in</th><th>Manage</th></tr></thead><tbody id="people-rows"></tbody></table></div>
+      <div id="people-pagination" class="pagination"></div>
+    </section>
+    <section id="user-editor" class="admin-card" hidden aria-labelledby="edit-title">
+      <div class="admin-section-heading"><div><p class="section-label">ACCOUNT DETAILS</p><h2 id="edit-title" tabindex="-1">Edit account</h2></div><button id="close-editor" class="text-button">Close</button></div>
+      <form id="edit-person-form">
+        <div class="admin-form-grid">
+          <div class="field"><label for="edit-email">Registered email</label><input id="edit-email" type="email" readonly></div>
+          <div class="field"><label for="edit-name">Full name</label><input id="edit-name" maxlength="80" required></div>
+          <div class="field" id="edit-year-field"><label for="edit-year">Year group</label><input id="edit-year" maxlength="30"></div>
+        </div>
+        <label class="review-check"><input id="edit-active" type="checkbox"><span>Account access enabled</span></label>
+        <p id="admin-access-note" class="review-help" hidden>Your Super Admin access is protected from accidental deactivation.</p>
+        <fieldset id="edit-assignments" class="assignment-fieldset"><legend>Assigned teachers</legend><div id="edit-teacher-choices" class="teacher-choices"></div></fieldset>
+        <div id="teacher-students"></div>
+        <button class="primary" type="submit">Save details and access</button>
+        <p id="edit-status" class="sync-status" role="status"></p>
+      </form>
+    </section>
+    <details class="roster-panel" id="audit-panel"><summary>Account activity log</summary>
+      <p class="review-help">Registrations, invitations and access changes, with the administrator and date recorded.</p>
+      <button id="refresh-audit" class="text-button">Refresh log</button>
+      <p id="audit-status" class="sync-status" role="status"></p>
+      <div id="audit-list"></div><div id="audit-pagination" class="pagination"></div>
+    </details>
+  </section>
+  <footer><span>KKF ACADEMY</span><span>Thoughtful access. Clear responsibilities.</span></footer>
+</main>
+</body></html>
